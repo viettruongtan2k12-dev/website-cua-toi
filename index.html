@@ -7,78 +7,417 @@
 </head>
 
 <body>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Bảo mật & Top cầu thủ</title>
 
-    <h1>Thông tin cá Nhân</h1>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <p>Họ và tên: Nguyễn Văn A</p>
-    <p>Email: viettruongtan@gmail.com</p>
-    <p>Số điện thoại: 0352441348</p>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #172554);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 100%;
+        }
+
+        /* =========================
+           MÀN HÌNH ĐĂNG NHẬP
+           ========================= */
+
+        .login-box {
+            width: 350px;
+            max-width: 100%;
+            margin: auto;
+            padding: 30px;
+            background: rgba(31, 41, 55, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           KHU VỰC TOP CẦU THỦ
+           ========================= */
+
+        #football-area {
+            display: none;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .players {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .player {
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: 0.25s;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .player:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .rank {
+            min-width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #f59e0b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 21px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .player-info h3 {
+            margin: 0 0 7px;
+            font-size: 20px;
+        }
+
+        .player-info p {
+            margin: 4px 0;
+            color: #cbd5e1;
+        }
+
+        .legend {
+            margin-top: 30px;
+            padding: 18px;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.8);
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .logout {
+            width: 180px;
+            display: block;
+            margin: 20px auto 0;
+            background: #dc2626;
+        }
+
+        .logout:hover {
+            background: #b91c1c;
+        }
+
+        @media (max-width: 650px) {
+            .players {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         ĐĂNG NHẬP
+         ========================= -->
+
+    <div class="login-box" id="login-box">
+
+        <h2>🔐 Khu vực bảo mật</h2>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Nhập mật khẩu"
+        >
+
+        <input
+            type="password"
+            id="pin"
+            maxlength="6"
+            placeholder="Nhập mã PIN 6 số"
+        >
+
+        <button onclick="checkLogin()">
+            Đăng nhập
+        </button>
+
+        <div id="message"></div>
+
+    </div>
 
 
-    <h2>💼 KINH NGHIỆM LÀM VIỆC</h2>
+    <!-- =========================
+         TOP CẦU THỦ
+         ========================= -->
 
-    <p>
-        <b>2019 – Nay | Chuyên gia đa nhiệm</b>
-    </p>
+    <div id="football-area">
 
-    <p>
-        Đã tham gia nhiều dự án quan trọng, trong đó có dự án chưa được công bố vì lý do bảo mật.
-    </p>
+        <h1 class="title">
+            ⚽ TOP CẦU THỦ BÓNG ĐÁ MỌI THỜI ĐẠI
+        </h1>
+
+        <p class="subtitle">
+            Một danh sách tham khảo dựa trên di sản, thành tích,
+            kỹ năng và tầm ảnh hưởng trong lịch sử bóng đá.
+        </p>
+
+        <div class="players">
+
+            <div class="player">
+                <div class="rank">1</div>
+                <div class="player-info">
+                    <h3>🇦🇷 Lionel Messi</h3>
+                    <p>⭐ 8 Quả bóng vàng</p>
+                    <p>🏆 World Cup 2022</p>
+                    <p>🎯 Tiền đạo / Tiền vệ công</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">2</div>
+                <div class="player-info">
+                    <h3>🇵🇹 Cristiano Ronaldo</h3>
+                    <p>⭐ 5 Quả bóng vàng</p>
+                    <p>🏆 Euro 2016</p>
+                    <p>🎯 Tiền đạo</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">3</div>
+                <div class="player-info">
+                    <h3>🇧🇷 Pelé</h3>
+                    <p>🏆 3 World Cup</p>
+                    <p>⚽ Hơn 1.000 bàn thắng theo thống kê được thường xuyên sử dụng</p>
+                    <p>🎯 Tiền đạo</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">4</div>
+                <div class="player-info">
+                    <h3>🇦🇷 Diego Maradona</h3>
+                    <p>🏆 World Cup 1986</p>
+                    <p>🎯 Tiền vệ công</p>
+                    <p>✨ Biểu tượng của kỹ thuật và khả năng rê bóng</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">5</div>
+                <div class="player-info">
+                    <h3>🇳🇱 Johan Cruyff</h3>
+                    <p>⭐ 3 Quả bóng vàng</p>
+                    <p>🧠 Biểu tượng của bóng đá tổng lực</p>
+                    <p>🎯 Tiền đạo / Tiền vệ</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">6</div>
+                <div class="player-info">
+                    <h3>🇧🇷 Ronaldo Nazário</h3>
+                    <p>⭐ 2 Quả bóng vàng</p>
+                    <p>🏆 World Cup 2002</p>
+                    <p>⚡ Tiền đạo</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">7</div>
+                <div class="player-info">
+                    <h3>🇫🇷 Zinedine Zidane</h3>
+                    <p>⭐ Quả bóng vàng 1998</p>
+                    <p>🏆 World Cup 1998</p>
+                    <p>🎯 Tiền vệ</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">8</div>
+                <div class="player-info">
+                    <h3>🇧🇷 Ronaldinho</h3>
+                    <p>⭐ Quả bóng vàng 2005</p>
+                    <p>🏆 World Cup 2002</p>
+                    <p>✨ Kỹ thuật và sáng tạo</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">9</div>
+                <div class="player-info">
+                    <h3>🇩🇪 Franz Beckenbauer</h3>
+                    <p>⭐ 2 Quả bóng vàng</p>
+                    <p>🏆 World Cup 1974</p>
+                    <p>🛡️ Hậu vệ / Libero</p>
+                </div>
+            </div>
+
+            <div class="player">
+                <div class="rank">10</div>
+                <div class="player-info">
+                    <h3>🇧🇷 Garrincha</h3>
+                    <p>🏆 2 World Cup</p>
+                    <p>⚡ Cầu thủ chạy cánh</p>
+                    <p>✨ Một trong những cầu thủ rê bóng nổi bật của thế kỷ 20</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="legend">
+            🏟️ <b>Lưu ý:</b> "Top" cầu thủ mọi thời đại phụ thuộc vào tiêu chí
+            và quan điểm. Danh sách trên chỉ là một ví dụ để hiển thị
+            dữ liệu trên website.
+        </div>
+
+        <button class="logout" onclick="logout()">
+            🚪 Đăng xuất
+        </button>
+
+    </div>
+
+</div>
 
 
-    <p>
-        <b>2021 – 2023 | Trưởng phòng giải quyết vấn đề</b>
-    </p>
+<script>
 
-    <p>
-        Chuyên xử lý các tình huống khó bằng phương pháp “để mai tính”, đạt hiệu quả cao trong việc kéo dài thời gian.
-    </p>
+    // =========================
+    // MẬT KHẨU DEMO
+    // =========================
 
-
-    <p>
-        <b>2023 – 2025 | Senior Pro Max Developer</b>
-    </p>
-
-    <p>
-        Có kinh nghiệm làm việc với HTML, CSS, JavaScript và đặc biệt là Google.
-    </p>
+    const correctPassword = "123456";
+    const correctPIN = "987654";
 
 
-    <p>
-        <b>2025 – Nay | CEO & Founder</b>
-    </p>
+    // =========================
+    // KIỂM TRA ĐĂNG NHẬP
+    // =========================
 
-    <p>
-        Sáng lập một startup công nghệ với đội ngũ gồm 1 người, ngân sách 0 đồng, doanh thu đang trong giai đoạn nghiên cứu.
-    </p>
+    function checkLogin() {
+
+        const password =
+            document.getElementById("password").value;
+
+        const pin =
+            document.getElementById("pin").value;
+
+        const message =
+            document.getElementById("message");
+
+        if (
+            password === correctPassword &&
+            pin === correctPIN
+        ) {
+
+            // Ẩn màn hình đăng nhập
+            document.getElementById("login-box").style.display = "none";
+
+            // Hiện danh sách cầu thủ
+            document.getElementById("football-area").style.display = "block";
+
+        } else {
+
+            message.textContent =
+                "❌ Sai mật khẩu hoặc mã PIN!";
+
+            message.style.color = "#f87171";
+        }
+    }
 
 
-    <h2>🏆 Thành tựu nổi bật</h2>
+    // =========================
+    // ĐĂNG XUẤT
+    // =========================
 
-    <p>
-        “Đã từng làm việc dưới áp lực cao, đặc biệt là 5 phút trước deadline.”
-    </p>
+    function logout() {
 
-    <p>
-        “Có khả năng biến một công việc 10 phút thành một dự án kéo dài 3 ngày.”
-    </p>
+        document.getElementById("football-area").style.display = "none";
 
-    <p>
-        “Kỹ năng đặc biệt: Nhìn code 30 phút và quyết định rằng lỗi nằm ở… máy tính.”
-    </p>
+        document.getElementById("login-box").style.display = "block";
 
+        document.getElementById("password").value = "";
+        document.getElementById("pin").value = "";
 
-    <h2>🎯 Sở thích</h2>
+        document.getElementById("message").textContent = "";
+    }
 
-    <p>Đọc sách</p>
-    <p>Chơi thể thao</p>
-    <p>Du lịch</p>
+</script>
+
+</body>
+</html>
 
 
-    <img 
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBFRkNDRy80cepUlpVdqqtqLm3I5cKoKgmWZ_NuuZfw&s=10" 
-        alt="Ảnh đại diện"
-    >
+</body>
+</html>
 
 </body>
 </html>
