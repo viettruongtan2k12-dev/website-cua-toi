@@ -3,345 +3,1376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Nguyễn Văn A</title>
+    <title>CV viet</title>
 </head>
 
 <body>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔐 Bảo mật & Top cầu thủ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>CV Việt Trương | Future AI Engineer 🤖</title>
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #172554);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .container {
-            width: 900px;
-            max-width: 100%;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* =========================
-           MÀN HÌNH ĐĂNG NHẬP
-           ========================= */
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#070b14;
+    color:#f8fafc;
+    transition:.35s;
+}
 
-        .login-box {
-            width: 350px;
-            max-width: 100%;
-            margin: auto;
-            padding: 30px;
-            background: rgba(31, 41, 55, 0.95);
-            border-radius: 18px;
-            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
+/* =========================
+   LIGHT MODE
+========================= */
 
-        .login-box h2 {
-            margin-bottom: 25px;
-        }
+body.light{
+    background:#eef2ff;
+    color:#111827;
+}
 
-        input {
-            width: 100%;
-            padding: 13px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-            font-size: 16px;
-        }
+body.light .navbar,
+body.light .card,
+body.light .hero,
+body.light .project,
+body.light .certificate,
+body.light .stat{
+    background:#ffffff;
+    color:#111827;
+    border-color:#dbe3f0;
+}
 
-        button {
-            width: 100%;
-            padding: 13px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 10px;
-            background: #2563eb;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+body.light p{
+    color:#475569;
+}
 
-        button:hover {
-            background: #1d4ed8;
-        }
+body.light .nav-links a{
+    color:#334155;
+}
 
-        #message {
-            margin-top: 15px;
-            font-weight: bold;
-        }
+/* =========================
+   BACKGROUND
+========================= */
 
-        /* =========================
-           KHU VỰC TOP CẦU THỦ
-           ========================= */
+.bg-orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.25;
+    z-index:-1;
+}
 
-        #football-area {
-            display: none;
-        }
+.orb1{
+    width:300px;
+    height:300px;
+    background:#2563eb;
+    top:50px;
+    left:-100px;
+}
 
-        .title {
-            text-align: center;
-            margin-bottom: 10px;
-        }
+.orb2{
+    width:300px;
+    height:300px;
+    background:#9333ea;
+    right:-100px;
+    top:400px;
+}
 
-        .subtitle {
-            text-align: center;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-        }
+.orb3{
+    width:250px;
+    height:250px;
+    background:#06b6d4;
+    left:30%;
+    bottom:-100px;
+}
 
-        .players {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
+/* =========================
+   NAVBAR
+========================= */
 
-        .player {
-            background: rgba(30, 41, 59, 0.95);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            transition: 0.25s;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-        .player:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
+    backdrop-filter:blur(15px);
 
-        .rank {
-            min-width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: #f59e0b;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 21px;
-            font-weight: bold;
-            color: #111827;
-        }
+    background:rgba(7,11,20,.8);
+    border-bottom:1px solid #1e293b;
 
-        .player-info h3 {
-            margin: 0 0 7px;
-            font-size: 20px;
-        }
+    padding:15px 5%;
 
-        .player-info p {
-            margin: 4px 0;
-            color: #cbd5e1;
-        }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        .legend {
-            margin-top: 30px;
-            padding: 18px;
-            border-radius: 14px;
-            background: rgba(15, 23, 42, 0.8);
-            text-align: center;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
+.logo{
+    font-size:22px;
+    font-weight:900;
+}
 
-        .logout {
-            width: 180px;
-            display: block;
-            margin: 20px auto 0;
-            background: #dc2626;
-        }
+.logo span{
+    color:#60a5fa;
+}
 
-        .logout:hover {
-            background: #b91c1c;
-        }
+.nav-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
 
-        @media (max-width: 650px) {
-            .players {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+.nav-links a{
+    text-decoration:none;
+    color:#cbd5e1;
+    font-size:14px;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:#60a5fa;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:35px auto 70px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    padding:50px;
+    border:1px solid #263246;
+    border-radius:28px;
+
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #172554
+    );
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:30px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#60a5fa,#a78bfa,#22d3ee);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.subtitle{
+    margin-top:12px;
+    font-size:18px;
+    color:#cbd5e1;
+}
+
+.tag{
+    display:inline-block;
+    margin-top:18px;
+    background:#1d4ed8;
+    color:white;
+    padding:8px 15px;
+    border-radius:999px;
+    font-size:13px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.btn{
+    padding:12px 18px;
+    border-radius:12px;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.primary{
+    background:#2563eb;
+    color:white;
+}
+
+.secondary{
+    background:#1e293b;
+    color:#e2e8f0;
+}
+
+.avatar{
+    width:180px;
+    height:180px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:75px;
+
+    background:linear-gradient(
+        135deg,
+        #60a5fa,
+        #a78bfa
+    );
+
+    box-shadow:
+        0 0 40px rgba(96,165,250,.35);
+
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    margin-top:22px;
+}
+
+.card{
+    background:#111827;
+    border:1px solid #263246;
+    border-radius:20px;
+    padding:28px;
+
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#3b82f6;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.card h2{
+    margin-bottom:18px;
+    color:#60a5fa;
+}
+
+.card p{
+    color:#cbd5e1;
+    margin-bottom:9px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:22px;
+}
+
+.stat{
+    background:#111827;
+    border:1px solid #263246;
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+}
+
+.stat-number{
+    font-size:34px;
+    font-weight:900;
+    color:#60a5fa;
+}
+
+.stat-label{
+    margin-top:6px;
+    font-size:13px;
+    color:#94a3b8;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skill{
+    margin-bottom:18px;
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:7px;
+}
+
+.bar{
+    height:10px;
+    border-radius:20px;
+    background:#1e293b;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    width:0;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        #60a5fa,
+        #a78bfa
+    );
+
+    transition:width 1.5s;
+}
+
+/* =========================
+   CERTIFICATES
+========================= */
+
+.certificate{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px;
+    margin-bottom:10px;
+
+    border:1px solid #263246;
+    border-radius:14px;
+
+    background:#0f172a;
+}
+
+.certificate small{
+    color:#60a5fa;
+}
+
+/* =========================
+   PROJECT
+========================= */
+
+.project{
+    padding:18px;
+    border:1px solid #263246;
+    border-radius:15px;
+    background:#0f172a;
+    margin-bottom:14px;
+}
+
+.project h3{
+    color:#f8fafc;
+    margin-bottom:7px;
+}
+
+.project p{
+    font-size:14px;
+}
+
+.project button{
+    margin-top:10px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    border-left:3px solid #3b82f6;
+    padding-left:22px;
+}
+
+.timeline-item{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+
+    left:-29px;
+    top:4px;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+    background:#60a5fa;
+}
+
+.timeline-item small{
+    color:#60a5fa;
+}
+
+.timeline-item h3{
+    margin-top:4px;
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+    padding:18px;
+
+    background:#0f172a;
+
+    border-left:4px solid #60a5fa;
+
+    border-radius:12px;
+
+    color:#cbd5e1;
+
+    font-style:italic;
+
+    margin-top:15px;
+}
+
+/* =========================
+   TERMINAL
+========================= */
+
+.terminal{
+    background:#020617;
+    border:1px solid #1e293b;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    font-family:Consolas,monospace;
+
+    color:#22c55e;
+}
+
+.terminal span{
+    color:#60a5fa;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+details{
+    background:#0f172a;
+    border:1px solid #263246;
+
+    margin-bottom:10px;
+    border-radius:12px;
+
+    padding:15px;
+
+    cursor:pointer;
+}
+
+summary{
+    font-weight:700;
+}
+
+details p{
+    margin-top:10px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.contact-buttons button{
+    padding:12px 16px;
+    border-radius:12px;
+    background:#1e293b;
+    color:#e2e8f0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    color:#64748b;
+    margin-top:35px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:2000;
+}
+
+.modal-box{
+    width:90%;
+    max-width:550px;
+
+    background:#111827;
+
+    border:1px solid #334155;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+}
+
+.close{
+    float:right;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding:35px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:500px){
+
+    .container{
+        width:94%;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .avatar{
+        width:140px;
+        height:140px;
+        font-size:55px;
+    }
+
+}
+</style>
 </head>
 
 <body>
 
+<!-- BACKGROUND -->
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        VIỆT<span>.DEV</span> 🚀
+    </div>
+
+    <div class="nav-links">
+        <a href="#about">Giới thiệu</a>
+        <a href="#skills">Kỹ năng</a>
+        <a href="#certs">Chứng chỉ</a>
+        <a href="#projects">Dự án</a>
+        <a href="#contact">Liên hệ</a>
+    </div>
+
+    <button
+        class="btn secondary"
+        onclick="toggleTheme()"
+    >
+        🌓
+    </button>
+
+</nav>
+
+
 <div class="container">
 
-    <!-- =========================
-         ĐĂNG NHẬP
-         ========================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <div class="login-box" id="login-box">
+<section class="hero">
 
-        <h2>🔐 Khu vực bảo mật</h2>
+    <div>
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Nhập mật khẩu"
+        <div class="tag">
+            🟢 ONLINE • ĐANG HỌC C++, PYTHON & AI
+        </div>
+
+        <h1 style="margin-top:15px">
+            VIỆT
+            <span class="gradient">
+                TRƯƠNG
+            </span>
+        </h1>
+
+        <p class="subtitle">
+            🎓 Grade 9 Student |
+            💻 Future AI Engineer |
+            🧠 Overthinker Pro Max
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn primary"
+                onclick="showAbout()"
+            >
+                👀 Xem giới thiệu
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="downloadCV()"
+            >
+                📄 Tải CV
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="surpriseMe()"
+            >
+                🎁 Đừng bấm
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="avatar">
+        🤖
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="stat">
+        <div
+            class="stat-number counter"
+            data-target="2"
         >
+            0
+        </div>
+        <div class="stat-label">
+            Chứng chỉ tiêu biểu
+        </div>
+    </div>
 
-        <input
-            type="password"
-            id="pin"
-            maxlength="6"
-            placeholder="Nhập mã PIN 6 số"
+    <div class="stat">
+        <div
+            class="stat-number counter"
+            data-target="3"
         >
+            0
+        </div>
+        <div class="stat-label">
+            Ngôn ngữ / công nghệ
+        </div>
+    </div>
 
-        <button onclick="checkLogin()">
-            Đăng nhập
-        </button>
+    <div class="stat">
+        <div
+            class="stat-number counter"
+            data-target="9"
+        >
+            0
+        </div>
+        <div class="stat-label">
+            Lớp hiện tại
+        </div>
+    </div>
 
-        <div id="message"></div>
+    <div class="stat">
+        <div
+            class="stat-number counter"
+            data-target="∞"
+        >
+            0
+        </div>
+        <div class="stat-label">
+            Tham vọng 🚀
+        </div>
+    </div>
+
+</section>
+
+
+<div class="grid">
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="card" id="about">
+
+    <h2>👋 Tôi là ai?</h2>
+
+    <p>
+        Xin chào, mình là Việt.
+        Một học sinh lớp 9 đang cố gắng học tập,
+        lập trình và tìm hiểu về AI.
+    </p>
+
+    <p>
+        Mục tiêu dài hạn:
+        trở thành một AI Engineer và tạo ra
+        những sản phẩm công nghệ thực sự hữu ích.
+    </p>
+
+    <div class="quote">
+        "Không cần giỏi nhất ngay từ đầu.
+        Quan trọng là mỗi ngày tiến thêm một bước."
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PERSONAL
+========================= -->
+
+<section class="card">
+
+    <h2>📊 Thông tin cá nhân</h2>
+
+    <p>🎓 Học vấn: Học sinh THCS</p>
+
+    <p>📍 Quốc gia: Việt Nam 🇻🇳</p>
+
+    <p>💻 Định hướng: AI Engineer</p>
+
+    <p>🧠 Sở thích: Công nghệ, lập trình, AI</p>
+
+    <p>⚽ Idol bóng đá: Messi 🐐</p>
+
+    <p>🌌 Ước mơ ngoài công nghệ: Ngắm cực quang</p>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section
+    class="card"
+    id="skills"
+>
+
+    <h2>🧠 Kỹ năng</h2>
+
+    <div class="skill">
+
+        <div class="skill-top">
+            <span>HTML / CSS</span>
+            <span>85%</span>
+        </div>
+
+        <div class="bar">
+            <div
+                class="fill"
+                data-width="85%"
+            ></div>
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         TOP CẦU THỦ
-         ========================= -->
+    <div class="skill">
 
-    <div id="football-area">
+        <div class="skill-top">
+            <span>Python</span>
+            <span>70%</span>
+        </div>
 
-        <h1 class="title">
-            ⚽ TOP CẦU THỦ BÓNG ĐÁ MỌI THỜI ĐẠI
-        </h1>
+        <div class="bar">
+            <div
+                class="fill"
+                data-width="70%"
+            ></div>
+        </div>
 
-        <p class="subtitle">
-            Một danh sách tham khảo dựa trên di sản, thành tích,
-            kỹ năng và tầm ảnh hưởng trong lịch sử bóng đá.
+    </div>
+
+
+    <div class="skill">
+
+        <div class="skill-top">
+            <span>C++</span>
+            <span>35%</span>
+        </div>
+
+        <div class="bar">
+            <div
+                class="fill"
+                data-width="35%"
+            ></div>
+        </div>
+
+    </div>
+
+
+    <div class="skill">
+
+        <div class="skill-top">
+            <span>AI / ML</span>
+            <span>60%</span>
+        </div>
+
+        <div class="bar">
+            <div
+                class="fill"
+                data-width="60%"
+            ></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CERTIFICATES
+========================= -->
+
+<section
+    class="card"
+    id="certs"
+>
+
+    <h2>🏆 Chứng chỉ</h2>
+
+
+    <div class="certificate">
+
+        <strong>
+            📜 ILEST
+        </strong>
+
+        <small>
+            CERTIFICATE
+        </small>
+
+    </div>
+
+
+    <div class="certificate">
+
+        <strong>
+            📜 Harvest
+        </strong>
+
+        <small>
+            CERTIFICATE
+        </small>
+
+    </div>
+
+
+    <div class="certificate">
+
+        <strong>
+            🏅 Academic Achievement
+        </strong>
+
+        <small>
+            STUDENT
+        </small>
+
+    </div>
+
+
+    <button
+        class="btn primary"
+        onclick="showCertificates()"
+    >
+        🔎 Xem chi tiết
+    </button>
+
+</section>
+
+
+<!-- =========================
+     TERMINAL
+========================= -->
+
+<section class="card">
+
+    <h2>💻 Terminal của Việt</h2>
+
+    <div class="terminal">
+
+        <p>
+            <span>việt@future-ai:~$</span>
+            whoami
         </p>
 
-        <div class="players">
+        <p>
+            Grade 9 student
+        </p>
 
-            <div class="player">
-                <div class="rank">1</div>
-                <div class="player-info">
-                    <h3>🇦🇷 Lionel Messi</h3>
-                    <p>⭐ 8 Quả bóng vàng</p>
-                    <p>🏆 World Cup 2022</p>
-                    <p>🎯 Tiền đạo / Tiền vệ công</p>
-                </div>
-            </div>
+        <br>
 
-            <div class="player">
-                <div class="rank">2</div>
-                <div class="player-info">
-                    <h3>🇵🇹 Cristiano Ronaldo</h3>
-                    <p>⭐ 5 Quả bóng vàng</p>
-                    <p>🏆 Euro 2016</p>
-                    <p>🎯 Tiền đạo</p>
-                </div>
-            </div>
+        <p>
+            <span>việt@future-ai:~$</span>
+            ambition
+        </p>
 
-            <div class="player">
-                <div class="rank">3</div>
-                <div class="player-info">
-                    <h3>🇧🇷 Pelé</h3>
-                    <p>🏆 3 World Cup</p>
-                    <p>⚽ Hơn 1.000 bàn thắng theo thống kê được thường xuyên sử dụng</p>
-                    <p>🎯 Tiền đạo</p>
-                </div>
-            </div>
+        <p>
+            Creating something nobody has created yet...
+        </p>
 
-            <div class="player">
-                <div class="rank">4</div>
-                <div class="player-info">
-                    <h3>🇦🇷 Diego Maradona</h3>
-                    <p>🏆 World Cup 1986</p>
-                    <p>🎯 Tiền vệ công</p>
-                    <p>✨ Biểu tượng của kỹ thuật và khả năng rê bóng</p>
-                </div>
-            </div>
+        <br>
 
-            <div class="player">
-                <div class="rank">5</div>
-                <div class="player-info">
-                    <h3>🇳🇱 Johan Cruyff</h3>
-                    <p>⭐ 3 Quả bóng vàng</p>
-                    <p>🧠 Biểu tượng của bóng đá tổng lực</p>
-                    <p>🎯 Tiền đạo / Tiền vệ</p>
-                </div>
-            </div>
+        <p>
+            <span>việt@future-ai:~$</span>
+            status
+        </p>
 
-            <div class="player">
-                <div class="rank">6</div>
-                <div class="player-info">
-                    <h3>🇧🇷 Ronaldo Nazário</h3>
-                    <p>⭐ 2 Quả bóng vàng</p>
-                    <p>🏆 World Cup 2002</p>
-                    <p>⚡ Tiền đạo</p>
-                </div>
-            </div>
+        <p>
+            🚀 Still learning
+        </p>
 
-            <div class="player">
-                <div class="rank">7</div>
-                <div class="player-info">
-                    <h3>🇫🇷 Zinedine Zidane</h3>
-                    <p>⭐ Quả bóng vàng 1998</p>
-                    <p>🏆 World Cup 1998</p>
-                    <p>🎯 Tiền vệ</p>
-                </div>
-            </div>
+    </div>
 
-            <div class="player">
-                <div class="rank">8</div>
-                <div class="player-info">
-                    <h3>🇧🇷 Ronaldinho</h3>
-                    <p>⭐ Quả bóng vàng 2005</p>
-                    <p>🏆 World Cup 2002</p>
-                    <p>✨ Kỹ thuật và sáng tạo</p>
-                </div>
-            </div>
+</section>
 
-            <div class="player">
-                <div class="rank">9</div>
-                <div class="player-info">
-                    <h3>🇩🇪 Franz Beckenbauer</h3>
-                    <p>⭐ 2 Quả bóng vàng</p>
-                    <p>🏆 World Cup 1974</p>
-                    <p>🛡️ Hậu vệ / Libero</p>
-                </div>
-            </div>
 
-            <div class="player">
-                <div class="rank">10</div>
-                <div class="player-info">
-                    <h3>🇧🇷 Garrincha</h3>
-                    <p>🏆 2 World Cup</p>
-                    <p>⚡ Cầu thủ chạy cánh</p>
-                    <p>✨ Một trong những cầu thủ rê bóng nổi bật của thế kỷ 20</p>
-                </div>
-            </div>
+<!-- =========================
+     PROJECTS
+========================= -->
 
-        </div>
+<section
+    class="card"
+    id="projects"
+>
 
-        <div class="legend">
-            🏟️ <b>Lưu ý:</b> "Top" cầu thủ mọi thời đại phụ thuộc vào tiêu chí
-            và quan điểm. Danh sách trên chỉ là một ví dụ để hiển thị
-            dữ liệu trên website.
-        </div>
+    <h2>🚀 Dự án / Đang phát triển</h2>
 
-        <button class="logout" onclick="logout()">
-            🚪 Đăng xuất
+
+    <div class="project">
+
+        <h3>
+            🌐 Personal Portfolio
+        </h3>
+
+        <p>
+            Website cá nhân xây dựng bằng HTML,
+            CSS và JavaScript.
+        </p>
+
+        <button
+            class="btn secondary"
+            onclick="projectAlert('Portfolio')"
+        >
+            Xem dự án
         </button>
+
+    </div>
+
+
+    <div class="project">
+
+        <h3>
+            🤖 AI Learning Journey
+        </h3>
+
+        <p>
+            Hành trình học Python, C++,
+            Machine Learning và AI.
+        </p>
+
+        <button
+            class="btn secondary"
+            onclick="projectAlert('AI Learning')"
+        >
+            Xem tiến độ
+        </button>
+
+    </div>
+
+
+    <div class="project">
+
+        <h3>
+            🎬 Education Video Project
+        </h3>
+
+        <p>
+            Thiết kế video hướng nghiệp
+            bằng AI và công cụ chỉnh sửa.
+        </p>
+
+        <button
+            class="btn secondary"
+            onclick="projectAlert('Video Project')"
+        >
+            Xem dự án
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JOURNEY
+========================= -->
+
+<section class="card">
+
+    <h2>🛣️ Hành trình</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <small>
+                2026
+            </small>
+
+            <h3>
+                📚 Grade 9
+            </h3>
+
+            <p>
+                Tập trung cho kỳ thi vào lớp 10
+                và bắt đầu định hướng chuyên Tin.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <small>
+                2026 → 2027
+            </small>
+
+            <h3>
+                💻 C++ + Python
+            </h3>
+
+            <p>
+                Xây nền tảng lập trình
+                để tiến sâu hơn vào AI.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <small>
+                FUTURE
+            </small>
+
+            <h3>
+                🤖 AI ENGINEER
+            </h3>
+
+            <p>
+                Xây dựng các hệ thống AI
+                và những dự án công nghệ của riêng mình.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FUN CARD
+========================= -->
+
+<section class="card">
+
+    <h2>😂 Chỉ số hệ thống</h2>
+
+    <p>
+        📚 Khả năng học:
+        <strong>████████░░ 80%</strong>
+    </p>
+
+    <p>
+        💻 Ham code:
+        <strong>█████████░ 90%</strong>
+    </p>
+
+    <p>
+        🧠 Overthinking:
+        <strong>██████████ 100%</strong>
+    </p>
+
+    <p>
+        😴 Ngủ đúng giờ:
+        <strong>██░░░░░░░░ 20%</strong>
+    </p>
+
+    <p>
+        🚀 Tham vọng:
+        <strong>ERROR: LIMIT NOT FOUND</strong>
+    </p>
+
+</section>
+
+
+<!-- =========================
+     GOALS
+========================= -->
+
+<section class="card">
+
+    <h2>🎯 Mục tiêu</h2>
+
+    <p>1️⃣ Học tốt các môn chính</p>
+
+    <p>2️⃣ Nâng trình C++</p>
+
+    <p>3️⃣ Thành thạo Python</p>
+
+    <p>4️⃣ Hiểu Machine Learning</p>
+
+    <p>5️⃣ Xây dựng dự án AI</p>
+
+    <p>6️⃣ Tạo ra thứ thật sự có ích</p>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section class="card">
+
+    <h2>❓ FAQ</h2>
+
+
+    <details>
+
+        <summary>
+            Việt có ngủ không?
+        </summary>
+
+        <p>
+            Có. Nhưng đôi khi deadline
+            khiến hệ thống chuyển sang chế độ
+            "thức để suy nghĩ". 💀
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Tại sao muốn học AI?
+        </summary>
+
+        <p>
+            Vì AI không chỉ là thứ để sử dụng.
+            Việt muốn hiểu cách tạo ra nó.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Kế hoạch 10 năm?
+        </summary>
+
+        <p>
+            Học → xây dự án → thử nghiệm →
+            thất bại → sửa → tiếp tục. 🚀
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Mục tiêu cuối cùng?
+        </summary>
+
+        <p>
+            Tạo ra một thứ khiến người khác
+            phải nói: "Ủa cái này làm được hả?" 😎
+        </p>
+
+    </details>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    class="card"
+    id="contact"
+>
+
+    <h2>📡 Liên hệ</h2>
+
+    <p>
+        Email:
+        <strong id="email">
+            viet@example.com
+        </strong>
+    </p>
+
+    <div class="contact-buttons">
+
+        <button onclick="copyEmail()">
+            📋 Copy Email
+        </button>
+
+        <button onclick="fakeContact()">
+            📩 Gửi tin nhắn
+        </button>
+
+        <button onclick="showAbout()">
+            👋 Say Hi
+        </button>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+    © 2026 Việt Trương
+
+    <br>
+
+    Built with
+    HTML + CSS + JavaScript
+    + một lượng tham vọng hơi quá mức cần thiết 🤖
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-box">
+
+        <span
+            class="close"
+            onclick="closeModal()"
+        >
+            ✕
+        </span>
+
+        <div id="modalContent"></div>
 
     </div>
 
@@ -350,71 +1381,409 @@
 
 <script>
 
-    // =========================
-    // MẬT KHẨU DEMO
-    // =========================
+/* =========================
+   THEME
+========================= */
 
-    const correctPassword = "123456";
-    const correctPIN = "987654";
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+}
 
 
-    // =========================
-    // KIỂM TRA ĐĂNG NHẬP
-    // =========================
+/* =========================
+   MODAL
+========================= */
 
-    function checkLogin() {
+function openModal(content){
 
-        const password =
-            document.getElementById("password").value;
+    document.getElementById("modalContent").innerHTML = content;
 
-        const pin =
-            document.getElementById("pin").value;
+    document.getElementById("modal").style.display = "flex";
 
-        const message =
-            document.getElementById("message");
+}
 
-        if (
-            password === correctPassword &&
-            pin === correctPIN
-        ) {
+function closeModal(){
 
-            // Ẩn màn hình đăng nhập
-            document.getElementById("login-box").style.display = "none";
+    document.getElementById("modal").style.display = "none";
 
-            // Hiện danh sách cầu thủ
-            document.getElementById("football-area").style.display = "block";
+}
 
-        } else {
+window.onclick = function(e){
 
-            message.textContent =
-                "❌ Sai mật khẩu hoặc mã PIN!";
+    const modal =
+        document.getElementById("modal");
 
-            message.style.color = "#f87171";
-        }
+    if(e.target === modal){
+
+        closeModal();
+
     }
 
+}
 
-    // =========================
-    // ĐĂNG XUẤT
-    // =========================
 
-    function logout() {
+/* =========================
+   ABOUT
+========================= */
 
-        document.getElementById("football-area").style.display = "none";
+function showAbout(){
 
-        document.getElementById("login-box").style.display = "block";
+    openModal(`
 
-        document.getElementById("password").value = "";
-        document.getElementById("pin").value = "";
+        <h2>👋 Xin chào!</h2>
 
-        document.getElementById("message").textContent = "";
+        <p style="margin-top:15px">
+
+        Mình là Việt — học sinh lớp 9,
+        đang trên hành trình trở thành
+        AI Engineer.
+
+        </p>
+
+        <p style="margin-top:10px">
+
+        Hiện tại hệ thống đang chạy:
+
+        </p>
+
+        <br>
+
+        <p>
+        🧠 Brain.exe: ONLINE
+        </p>
+
+        <p>
+        💻 Code.exe: RUNNING
+        </p>
+
+        <p>
+        🚀 Ambition.exe: UNLIMITED
+        </p>
+
+        <p>
+        😴 Sleep.exe: NOT FOUND
+        </p>
+
+    `);
+
+}
+
+
+/* =========================
+   CERTIFICATES
+========================= */
+
+function showCertificates(){
+
+    openModal(`
+
+        <h2>🏆 Certificate Center</h2>
+
+        <br>
+
+        <p>
+        📜 ILEST
+        </p>
+
+        <p>
+        📜 Harvest
+        </p>
+
+        <p>
+        🏅 Academic achievements
+        </p>
+
+        <br>
+
+        <p style="color:#60a5fa">
+
+        "Mỗi chứng chỉ là một dấu mốc,
+        không phải đích đến."
+
+        </p>
+
+    `);
+
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+function surpriseMe(){
+
+    const messages = [
+
+        "🚨 CẢNH BÁO: Bạn vừa kích hoạt chế độ tham vọng.",
+
+        "🤖 AI đang phân tích CV... Kết quả: có tiềm năng.",
+
+        "💀 Bạn thật sự đã bấm nút 'Đừng bấm'.",
+
+        "🚀 Achievement unlocked: Curiosity +10",
+
+        "🧠 Overthinking level increased to 101%",
+
+        "⚠️ Deadline detected. Student mode activated."
+
+    ];
+
+    const random =
+        messages[
+            Math.floor(Math.random()*messages.length)
+        ];
+
+    openModal(`
+
+        <h2>🎁 Surprise!</h2>
+
+        <br>
+
+        <p style="font-size:20px">
+        ${random}
+        </p>
+
+    `);
+
+}
+
+
+/* =========================
+   PROJECT BUTTON
+========================= */
+
+function projectAlert(name){
+
+    openModal(`
+
+        <h2>🚀 ${name}</h2>
+
+        <br>
+
+        <p>
+        Project đang trong quá trình
+        phát triển.
+        </p>
+
+        <br>
+
+        <p>
+        Status:
+        <strong style="color:#22c55e">
+        IN PROGRESS 🟢
+        </strong>
+        </p>
+
+    `);
+
+}
+
+
+/* =========================
+   COPY EMAIL
+========================= */
+
+function copyEmail(){
+
+    const email =
+        document.getElementById("email").innerText;
+
+    navigator.clipboard.writeText(email);
+
+    openModal(`
+
+        <h2>📋 Đã copy!</h2>
+
+        <p style="margin-top:15px">
+        ${email}
+        </p>
+
+        <br>
+
+        <p>
+        Giờ thì Ctrl + V thôi 😎
+        </p>
+
+    `);
+
+}
+
+
+/* =========================
+   FAKE CONTACT
+========================= */
+
+function fakeContact(){
+
+    openModal(`
+
+        <h2>📩 Contact System</h2>
+
+        <br>
+
+        <p>
+        Module liên hệ đang được phát triển.
+        </p>
+
+        <br>
+
+        <p>
+        Developer message:
+        "Sắp xong rồi, đừng report bug." 💀
+        </p>
+
+    `);
+
+}
+
+
+/* =========================
+   DOWNLOAD CV
+========================= */
+
+function downloadCV(){
+
+    const html =
+        document.documentElement.outerHTML;
+
+    const blob =
+        new Blob(
+            [html],
+            {type:"text/html"}
+        );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const a =
+        document.createElement("a");
+
+    a.href = url;
+
+    a.download =
+        "CV-Viet-Truong.html";
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================
+   COUNTER
+========================= */
+
+document.querySelectorAll(".counter")
+.forEach(counter => {
+
+    const target =
+        counter.dataset.target;
+
+    if(target === "∞"){
+
+        counter.innerText = "∞";
+
+        return;
+
     }
+
+    let current = 0;
+
+    const increment =
+        target / 50;
+
+    const timer =
+        setInterval(() => {
+
+            current += increment;
+
+            if(current >= target){
+
+                current = target;
+
+                clearInterval(timer);
+
+            }
+
+            counter.innerText =
+                Math.floor(current);
+
+        },30);
+
+});
+
+
+/* =========================
+   SKILL ANIMATION
+========================= */
+
+setTimeout(() => {
+
+    document.querySelectorAll(".fill")
+    .forEach(fill => {
+
+        fill.style.width =
+            fill.dataset.width;
+
+    });
+
+},400);
+
+
+/* =========================
+   EASTER EGG
+========================= */
+
+let clicks = 0;
+
+document.querySelector(".logo")
+.addEventListener("click", () => {
+
+    clicks++;
+
+    if(clicks === 7){
+
+        openModal(`
+
+            <h2>🗿 SECRET MODE</h2>
+
+            <br>
+
+            <p>
+            Bạn đã tìm thấy Easter Egg.
+            </p>
+
+            <br>
+
+            <p>
+            Phần thưởng:
+            +999 IQ
+            </p>
+
+            <p>
+            +999 Motivation
+            </p>
+
+            <p>
+            -50 Sleep
+            </p>
+
+        `);
+
+        clicks = 0;
+
+    }
+
+});
 
 </script>
 
 </body>
 </html>
-
 
 </body>
 </html>
