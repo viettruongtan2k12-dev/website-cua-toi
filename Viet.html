@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Football Player Hub ⚽</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070b10;
+    color:white;
+    transition:.3s;
+}
+
+body.light{
+    background:#eef2f5;
+    color:#111;
+}
+
+header{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 20%,#123c62,transparent 35%),
+        radial-gradient(circle at 80% 80%,#533c00,transparent 30%),
+        #070b10;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+}
+
+.hero{
+    max-width:900px;
+}
+
+.ball{
+    font-size:90px;
+    animation:ball 2s infinite;
+}
+
+@keyframes ball{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-20px) rotate(180deg)}
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,90px);
+    margin:20px 0;
+}
+
+.blue{
+    color:#4db8ff;
+}
+
+.gold{
+    color:#ffd700;
+}
+
+.hero p{
+    color:#9aa7b5;
+    font-size:19px;
+    line-height:1.7;
+}
+
+.btn{
+    margin-top:25px;
+    padding:15px 25px;
+    border:0;
+    border-radius:13px;
+    background:#4db8ff;
+    color:#071019;
+    font-weight:900;
+    font-size:16px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 6%;
+
+    background:rgba(5,8,12,.92);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid #273442;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#4db8ff;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.nav-buttons button{
+    background:#17212c;
+    color:white;
+    border:1px solid #2d3b49;
+    padding:10px 13px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+section{
+    padding:80px 6%;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+/* SEARCH */
+
+.search{
+    display:flex;
+    max-width:700px;
+    margin:0 auto 35px;
+}
+
+.search input{
+    flex:1;
+    padding:17px;
+    background:#111820;
+    border:1px solid #344454;
+    color:white;
+    border-radius:14px 0 0 14px;
+    outline:none;
+    font-size:16px;
+}
+
+.search button{
+    border:0;
+    padding:0 22px;
+    border-radius:0 14px 14px 0;
+    background:#ffd700;
+    font-weight:900;
+    cursor:pointer;
+}
+
+/* PLAYER */
+
+.player-card{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:30px;
+
+    background:#111923;
+    border:1px solid #2c3b49;
+    border-radius:28px;
+
+    padding:30px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.player-left{
+    text-align:center;
+    padding:20px;
+}
+
+.player-avatar{
+    width:180px;
+    height:180px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:100px;
+
+    background:
+        radial-gradient(circle,#243c51,#0d141c);
+
+    border:5px solid #4db8ff;
+
+    box-shadow:0 0 40px rgba(77,184,255,.2);
+}
+
+.player-name{
+    font-size:34px;
+    margin:20px 0 5px;
+}
+
+.position{
+    color:#4db8ff;
+    font-weight:bold;
+}
+
+.overall{
+    margin:25px auto;
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    background:#080d13;
+    border:5px solid #ffd700;
+}
+
+.overall strong{
+    font-size:45px;
+    color:#ffd700;
+}
+
+.overall span{
+    color:#aaa;
+    font-size:12px;
+}
+
+/* INFO */
+
+.info h3{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.stat{
+    background:#18232e;
+    padding:16px;
+    border-radius:14px;
+}
+
+.stat-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.stat-number{
+    color:#ffd700;
+    font-weight:900;
+}
+
+.bar{
+    height:9px;
+    background:#293542;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar-inner{
+    height:100%;
+    background:linear-gradient(90deg,#4db8ff,#ffd700);
+    width:0;
+    transition:1s;
+}
+
+/* BIO */
+
+.bio{
+    margin-top:20px;
+    padding:20px;
+    background:#0b1118;
+    border-radius:16px;
+    line-height:1.7;
+    color:#aab5c0;
+}
+
+/* BUTTON AREA */
+
+.actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.action{
+    padding:12px 18px;
+    border:0;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.favorite{
+    background:#ff3f63;
+    color:white;
+}
+
+.random{
+    background:#ffd700;
+    color:#111;
+}
+
+.copy{
+    background:#263544;
+    color:white;
+}
+
+/* TROPHIES */
+
+.trophies{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.trophy{
+    background:#111923;
+    border:1px solid #2c3b49;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.2s;
+}
+
+.trophy:hover{
+    transform:translateY(-6px);
+}
+
+.trophy-icon{
+    font-size:50px;
+}
+
+.trophy h3{
+    margin:12px 0;
+}
+
+.trophy p{
+    color:#8e9ba8;
+}
+
+/* COMPARE */
+
+.compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.compare-card{
+    background:#111923;
+    border:1px solid #2c3b49;
+    border-radius:22px;
+    padding:25px;
+}
+
+.compare-card h3{
+    margin-bottom:20px;
+}
+
+.compare-line{
+    display:flex;
+    justify-content:space-between;
+    padding:13px 0;
+    border-bottom:1px solid #293542;
+}
+
+.winner{
+    color:#4db8ff;
+    font-weight:900;
+}
+
+/* ACTIVITY */
+
+.activity{
+    background:#111923;
+    border:1px solid #2c3b49;
+    border-radius:25px;
+    padding:30px;
+}
+
+.activity-item{
+    display:flex;
+    justify-content:space-between;
+    padding:17px 0;
+    border-bottom:1px solid #293542;
+}
+
+.activity-item:last-child{
+    border-bottom:0;
+}
+
+.year{
+    color:#ffd700;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #273442;
+    padding:50px 20px;
+    text-align:center;
+    color:#788592;
+    line-height:2;
+}
+
+.author{
+    color:#4db8ff;
+    font-weight:900;
+}
+
+/* TOAST */
+
+#toast{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+
+    padding:15px 20px;
+
+    background:#ffd700;
+    color:#111;
+
+    border-radius:13px;
+
+    font-weight:900;
+
+    transform:translateY(100px);
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:3000;
+}
+
+#toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .player-card{
+        grid-template-columns:1fr;
+    }
+
+    .compare{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .title{
+        font-size:32px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<header id="home">
+
+<div class="hero">
+
+<div class="ball">⚽</div>
+
+<h1>
+FOOTBALL
+<span class="blue">PLAYER</span>
+<br>
+<span class="gold">HUB</span>
+</h1>
+
+<p>
+Khám phá hồ sơ, chỉ số, phong cách thi đấu,
+thành tích và những khoảnh khắc đáng nhớ của
+những cầu thủ bóng đá nổi tiếng.
+</p>
+
+<button class="btn" onclick="go('players')">
+🔥 KHÁM PHÁ CẦU THỦ
+</button>
+
+</div>
+
+</header>
+
+
+<!-- NAV -->
+
+<nav>
+
+<div class="logo">
+⚽ <span>PLAYER</span> HUB
+</div>
+
+<div class="nav-buttons">
+
+<button onclick="go('home')">
+🏠
+</button>
+
+<button onclick="go('players')">
+👤 Cầu thủ
+</button>
+
+<button onclick="go('trophies')">
+🏆 Thành tích
+</button>
+
+<button onclick="go('compare')">
+⚔️ So sánh
+</button>
+
+<button onclick="toggleTheme()">
+🌙
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- PLAYER -->
+
+<section id="players">
+
+<div class="container">
+
+<h2 class="title">
+👤 PLAYER PROFILE
+</h2>
+
+<div class="search">
+
+<input
+id="searchInput"
+placeholder="Tìm cầu thủ: Messi, Ronaldo, Mbappe..."
+>
+
+<button onclick="searchPlayer()">
+🔍 TÌM
+</button>
+
+</div>
+
+
+<div class="player-card">
+
+<div class="player-left">
+
+<div class="player-avatar" id="avatar">
+🇦🇷
+</div>
+
+<div class="player-name" id="playerName">
+Lionel Messi
+</div>
+
+<div class="position" id="position">
+RW / AM
+</div>
+
+<div class="overall">
+
+<strong id="overall">
+95
+</strong>
+
+<span>OVERALL</span>
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<h3>
+📊 PLAYER ATTRIBUTES
+</h3>
+
+<div class="info-grid">
+
+<div class="stat">
+
+<div class="stat-top">
+<span>⚡ Pace</span>
+<span class="stat-number" id="paceNum">85</span>
+</div>
+
+<div class="bar">
+<div class="bar-inner" id="pace"></div>
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-top">
+<span>🎯 Shooting</span>
+<span class="stat-number" id="shootNum">96</span>
+</div>
+
+<div class="bar">
+<div class="bar-inner" id="shoot"></div>
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-top">
+<span>🧠 Passing</span>
+<span class="stat-number" id="passNum">97</span>
+</div>
+
+<div class="bar">
+<div class="bar-inner" id="pass"></div>
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-top">
+<span>🎨 Dribbling</span>
+<span class="stat-number" id="dribbleNum">97</span>
+</div>
+
+<div class="bar">
+<div class="bar-inner" id="dribble"></div>
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-top">
+<span>🛡️ Defending</span>
+<span class="stat-number" id="defNum">40</span>
+</div>
+
+<div class="bar">
+<div class="bar-inner" id="def"></div>
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-top">
+<span>💪 Physical</span>
+<span class="stat-number" id="physicalNum">70</span>
+</div>
+
+<div class="bar">
+<div class="bar-inner" id="physical"></div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="bio" id="bio">
+
+Một trong những cầu thủ sáng tạo và có khả năng
+kiến tạo nổi bật nhất lịch sử bóng đá.
+
+</div>
+
+
+<div class="actions">
+
+<button class="action favorite" onclick="favorite()">
+❤️ YÊU THÍCH
+</button>
+
+<button class="action random" onclick="randomPlayer()">
+🎲 CẦU THỦ KHÁC
+</button>
+
+<button class="action copy" onclick="copyProfile()">
+📋 COPY HỒ SƠ
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TROPHIES -->
+
+<section id="trophies">
+
+<div class="container">
+
+<h2 class="title">
+🏆 DANH HIỆU
+</h2>
+
+<div class="trophies">
+
+<div class="trophy">
+
+<div class="trophy-icon">🏆</div>
+
+<h3>World Cup</h3>
+
+<p>1 lần</p>
+
+</div>
+
+
+<div class="trophy">
+
+<div class="trophy-icon">🥇</div>
+
+<h3>Ballon d'Or</h3>
+
+<p>8 lần</p>
+
+</div>
+
+
+<div class="trophy">
+
+<div class="trophy-icon">🏆</div>
+
+<h3>Champions League</h3>
+
+<p>4 lần</p>
+
+</div>
+
+
+<div class="trophy">
+
+<div class="trophy-icon">👟</div>
+
+<h3>Golden Shoe</h3>
+
+<p>6 lần</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COMPARE -->
+
+<section id="compare">
+
+<div class="container">
+
+<h2 class="title">
+⚔️ QUICK COMPARISON
+</h2>
+
+<div class="compare">
+
+<div class="compare-card">
+
+<h3>
+🇦🇷 Lionel Messi
+</h3>
+
+<div class="compare-line">
+<span>Ballon d'Or</span>
+<strong class="winner">8</strong>
+</div>
+
+<div class="compare-line">
+<span>World Cup</span>
+<strong class="winner">1</strong>
+</div>
+
+<div class="compare-line">
+<span>Golden Shoe</span>
+<strong class="winner">6</strong>
+</div>
+
+<div class="compare-line">
+<span>Champions League</span>
+<strong>4</strong>
+</div>
+
+<div class="compare-line">
+<span>Dribbling</span>
+<strong class="winner">Elite</strong>
+</div>
+
+</div>
+
+
+<div class="compare-card">
+
+<h3>
+🇵🇹 Cristiano Ronaldo
+</h3>
+
+<div class="compare-line">
+<span>Ballon d'Or</span>
+<strong>5</strong>
+</div>
+
+<div class="compare-line">
+<span>World Cup</span>
+<strong>0</strong>
+</div>
+
+<div class="compare-line">
+<span>Golden Shoe</span>
+<strong>4</strong>
+</div>
+
+<div class="compare-line">
+<span>Champions League</span>
+<strong class="winner">5</strong>
+</div>
+
+<div class="compare-line">
+<span>Finishing</span>
+<strong class="winner">Elite</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CAREER -->
+
+<section>
+
+<div class="container">
+
+<h2 class="title">
+📅 CAREER TIMELINE
+</h2>
+
+<div class="activity">
+
+<div class="activity-item">
+<span>🔵 Barcelona</span>
+<span class="year">2004–2021</span>
+</div>
+
+<div class="activity-item">
+<span>🔵 Paris Saint-Germain</span>
+<span class="year">2021–2023</span>
+</div>
+
+<div class="activity-item">
+<span>🩷 Inter Miami</span>
+<span class="year">2023–</span>
+</div>
+
+<div class="activity-item">
+<span>🇦🇷 Argentina</span>
+<span class="year">2005–</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+⚽ <strong>FOOTBALL PLAYER HUB</strong>
+
+<br>
+
+Website hồ sơ cầu thủ bóng đá — Fan Made
+
+<br><br>
+
+👨‍💻 Tác giả:
+<span class="author">
+Trương Tấn Việt
+</span>
+
+<br>
+
+© 2026
+
+<br><br>
+
+Made with HTML + CSS + JavaScript ❤️
+
+</footer>
+
+
+<div id="toast"></div>
+
+
+<script>
+
+/* ================= PLAYER DATA ================= */
+
+const players = {
+
+    messi:{
+        name:"Lionel Messi",
+        flag:"🇦🇷",
+        position:"RW / AM",
+        overall:95,
+        pace:85,
+        shoot:96,
+        pass:97,
+        dribble:97,
+        def:40,
+        physical:70,
+        bio:"Một trong những cầu thủ sáng tạo, rê bóng và kiến tạo nổi bật nhất lịch sử bóng đá."
+    },
+
+    ronaldo:{
+        name:"Cristiano Ronaldo",
+        flag:"🇵🇹",
+        position:"ST / LW",
+        overall:94,
+        pace:88,
+        shoot:97,
+        pass:82,
+        dribble:90,
+        def:35,
+        physical:88,
+        bio:"Một trong những chân sút nổi bật nhất lịch sử bóng đá, nổi tiếng với khả năng dứt điểm và thể chất."
+    },
+
+    mbappe:{
+        name:"Kylian Mbappé",
+        flag:"🇫🇷",
+        position:"ST / LW",
+        overall:91,
+        pace:97,
+        shoot:91,
+        pass:83,
+        dribble:92,
+        def:36,
+        physical:85,
+        bio:"Tiền đạo tốc độ cao nổi bật với khả năng bứt tốc, rê bóng và dứt điểm."
+    },
+
+    haaland:{
+        name:"Erling Haaland",
+        flag:"🇳🇴",
+        position:"ST",
+        overall:91,
+        pace:89,
+        shoot:97,
+        pass:75,
+        dribble:80,
+        def:45,
+        physical:94,
+        bio:"Tiền đạo mạnh mẽ, nổi bật với khả năng chọn vị trí và ghi bàn."
+    }
+
+};
+
+
+/* ================= LOAD PLAYER ================= */
+
+function loadPlayer(player){
+
+    document.getElementById("avatar").textContent=player.flag;
+
+    document.getElementById("playerName").textContent=player.name;
+
+    document.getElementById("position").textContent=player.position;
+
+    document.getElementById("overall").textContent=player.overall;
+
+    document.getElementById("bio").textContent=player.bio;
+
+
+    setStat("pace",player.pace);
+    setStat("shoot",player.shoot);
+    setStat("pass",player.pass);
+    setStat("dribble",player.dribble);
+    setStat("def",player.def);
+    setStat("physical",player.physical);
+
+}
+
+
+function setStat(id,value){
+
+    document.getElementById(id+"Num")
+    .textContent=value;
+
+    setTimeout(()=>{
+
+        document.getElementById(id)
+        .style.width=value+"%";
+
+    },100);
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchPlayer(){
+
+    let input=
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    if(
+        input.includes("messi") ||
+        input.includes("lionel")
+    ){
+
+        loadPlayer(players.messi);
+
+    }
+
+    else if(
+        input.includes("ronaldo") ||
+        input.includes("cr7")
+    ){
+
+        loadPlayer(players.ronaldo);
+
+    }
+
+    else if(input.includes("mbappe")){
+
+        loadPlayer(players.mbappe);
+
+    }
+
+    else if(input.includes("haaland")){
+
+        loadPlayer(players.haaland);
+
+    }
+
+    else{
+
+        showToast("❌ Không tìm thấy cầu thủ!");
+
+        return;
+
+    }
+
+    showToast("⚽ Đã tìm thấy!");
+
+}
+
+
+/* ================= RANDOM ================= */
+
+function randomPlayer(){
+
+    const list=
+    Object.values(players);
+
+    const player=
+    list[
+        Math.floor(
+            Math.random()*list.length
+        )
+    ];
+
+    loadPlayer(player);
+
+    showToast(
+        "🎲 "+player.name
+    );
+
+}
+
+
+/* ================= FAVORITE ================= */
+
+function favorite(){
+
+    const name=
+    document
+    .getElementById("playerName")
+    .textContent;
+
+    showToast(
+        "❤️ Đã thêm "+name+" vào yêu thích!"
+    );
+
+}
+
+
+/* ================= COPY ================= */
+
+function copyProfile(){
+
+    const name=
+    document
+    .getElementById("playerName")
+    .textContent;
+
+    const overall=
+    document
+    .getElementById("overall")
+    .textContent;
+
+    const position=
+    document
+    .getElementById("position")
+    .textContent;
+
+    const text=
+`${name}
+Position: ${position}
+Overall: ${overall}
+Football Player Hub
+Tác giả: Trương Tấn Việt`;
+
+    navigator.clipboard.writeText(text);
+
+    showToast("📋 Đã copy hồ sơ!");
+
+}
+
+
+/* ================= NAV ================= */
+
+function go(id){
+
+    document
+    .getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ================= THEME ================= */
+
+function toggleTheme(){
+
+    document
+    .body
+    .classList
+    .toggle("light");
+
+    showToast(
+        document.body.classList.contains("light")
+        ?"☀️ Light Mode"
+        :"🌙 Dark Mode"
+    );
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(message){
+
+    const toast=
+    document.getElementById("toast");
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2000);
+
+}
+
+
+/* ================= INITIAL ================= */
+
+loadPlayer(players.messi);
+
+</script>
+
+</body>
+</html>
